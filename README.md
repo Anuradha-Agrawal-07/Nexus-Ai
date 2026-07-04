@@ -59,6 +59,8 @@ backend/
 
 ## Roadmap
 
+## Roadmap
+
 - [x] Backend setup
 - [x] Configuration management
 - [x] Database connection
@@ -70,17 +72,8 @@ backend/
 - [ ] AI Gateway
 - [ ] Multi-Provider Support
 - [ ] Intelligent Model Router
-- [ ] Cost Tracking
-- [ ] Logging & Observability
 - [ ] Evaluation Engine
-- [ ] Dashboard
-- [ ] Prompt Management
-- [ ] Agent Runtime
-- [ ] Checkpoint & Recovery
-- [ ] Workflow Engine
-- [ ] Memory Layer
-- [ ] Plugin System
-- [ ] SDK & Documentation
+- [ ] Observability Dashboard
 
 ---
 
