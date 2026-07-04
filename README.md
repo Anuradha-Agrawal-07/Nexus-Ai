@@ -41,17 +41,17 @@ Instead of directly integrating with individual LLM providers, Nexus AI aims to 
 
 ## Project Structure
 
+```text
 backend/
 ├── alembic/
 ├── app/
-│ ├── core/
-│ ├── db/
-│ ├── models/
-│ └── main.py
+│   ├── core/
+│   ├── db/
+│   ├── models/
+│   └── main.py
 ├── alembic.ini
 └── requirements.txt
-
-text
+```
 
 ---
 
