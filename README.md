@@ -2,7 +2,7 @@
 
 Nexus AI is an AI infrastructure platform designed to simplify the development, deployment, and management of AI-powered applications.
 
-Instead of directly integrating with individual LLM providers, Nexus AI aims to provide a unified backend for authentication, project management, API keys, intelligent model routing, evaluation, and future AI workflows.
+Instead of integrating authentication, project management, API keys, and multiple AI providers separately for every application, Nexus AI aims to provide a unified backend with intelligent routing, evaluation, observability, and the infrastructure needed to build production AI applications.
 
 ---
 
