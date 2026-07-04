@@ -2,7 +2,7 @@
 
 Nexus AI is an AI infrastructure platform designed to simplify the development, deployment, and management of AI-powered applications.
 
-Instead of integrating authentication, project management, API keys, and multiple AI providers separately for every application, Nexus AI aims to provide a unified backend with intelligent routing, evaluation, observability, and the infrastructure needed to build production AI applications.
+Instead of rebuilding the same backend for every AI application, Nexus AI aims to provide a unified platform for authentication, project management, API key management, intelligent model routing, evaluation, observability, and the infrastructure required to build production-ready AI applications.
 
 ---
 
@@ -57,24 +57,38 @@ backend/
 
 ## Roadmap
 
+## Roadmap
+
 - [x] Backend setup
-- [x] Configuration system
+- [x] Configuration management
 - [x] Database connection
 - [x] User model
 - [x] Database migrations
 - [ ] Authentication
-- [ ] Projects
+- [ ] Project Management
 - [ ] API Key Management
 - [ ] AI Gateway
+- [ ] Multi-Provider Support
 - [ ] Intelligent Model Router
+- [ ] Cost Tracking
+- [ ] Logging & Observability
 - [ ] Evaluation Engine
 - [ ] Dashboard
+- [ ] Prompt Management
+- [ ] Agent Runtime
+- [ ] Checkpoint & Recovery
+- [ ] Workflow Engine
+- [ ] Memory Layer
+- [ ] Plugin System
+- [ ] SDK & Documentation
 
 ---
 
 ## Vision
 
-The long-term goal of Nexus AI is to become a unified AI infrastructure platform that abstracts multiple AI providers behind a single interface while providing authentication, project management, observability, evaluation, and intelligent routing.
+The long-term goal of Nexus AI is to become a unified AI infrastructure platform that abstracts multiple AI providers behind a single interface while providing authentication, project management, intelligent routing, evaluation, observability, and reliable execution for AI-powered applications.
+
+As the project evolves, Nexus AI will expand into a runtime for AI applications and agents, enabling developers to deploy, monitor, evaluate, and scale AI systems without rebuilding the underlying infrastructure
 
 ---
 
@@ -82,4 +96,5 @@ The long-term goal of Nexus AI is to become a unified AI infrastructure platform
 
 🚧 Currently under active development.
 
+Contributions, feedback, and suggestions are always welcome.
 
