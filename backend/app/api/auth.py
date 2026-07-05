@@ -10,8 +10,13 @@ from app.crud.user import (
     create_user
 )
 
-from app.services.security import hash_password
+from app.schemas.auth import LoginRequest, Token
 
+from app.services.security import (
+    hash_password,
+    verify_password,
+    create_access_token,
+)
 router = APIRouter(
     prefix="/auth",
     tags=["Authentication"]
@@ -43,3 +48,41 @@ def register(
     )
 
     return new_user
+
+
+@router.post(
+    "/login",
+    response_model=Token,
+    status_code=201  #client's request was successfully fulfilled
+)
+def login(
+    login: LoginRequest,
+    db: Session = Depends(get_db)
+):
+    existing_user = get_user_by_email(db, login.email)
+
+    if not existing_user:
+        raise HTTPException(
+            status_code=401,
+            detail="Invalid email or password"
+        )
+
+    
+
+    if(verify_password(login.password,existing_user.hashed_password)):
+        data = {
+            "sub": str(existing_user.id),
+            "role": existing_user.role
+    }
+        token=create_access_token(data)
+        return {
+            "access_token": token,
+            "token_type": "bearer"
+    }
+
+    if not verify_password(login.password,existing_user.hashed_password):
+        raise HTTPException(
+            status_code=401,
+            detail="Invalid email or password"
+    )
+    
