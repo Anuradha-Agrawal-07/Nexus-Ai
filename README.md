@@ -1,37 +1,47 @@
 # Nexus AI
 
-Nexus AI is an AI infrastructure platform designed to simplify the development, deployment, and management of AI-powered applications.
+> The infrastructure layer for building production-ready AI applications.
 
-Instead of rebuilding the same backend for every AI application, Nexus AI aims to provide a unified platform for authentication, project management, API key management, intelligent model routing, evaluation, observability, and the infrastructure required to build production-ready AI applications.
+Nexus AI is an open-source AI infrastructure platform designed to eliminate the need to rebuild the same backend for every AI application.
 
----
-
-## Current Progress
-
-### Backend Foundation
-
-- ✅ FastAPI application
-- ✅ Configuration management using `.env`
-- ✅ PostgreSQL integration
-- ✅ SQLAlchemy ORM
-- ✅ Alembic database migrations
-- ✅ User model
-- ✅ Initial `users` table
+Instead of wiring together authentication, API keys, model routing, evaluation, observability, and project management from scratch, Nexus AI aims to provide a unified platform that lets developers focus on building AI products rather than infrastructure.
 
 ---
 
-## Tech Stack
+# Current Progress
 
-### Backend
+## ✅ Backend Foundation
+
+- FastAPI application
+- Environment-based configuration
+- PostgreSQL integration
+- SQLAlchemy ORM
+- Alembic database migrations
+
+## ✅ Authentication Foundation
+
+- User model
+- User registration endpoint
+- Password hashing (Argon2)
+- Duplicate email protection
+- Request & response validation with Pydantic
+- Database session management
+
+---
+
+# Tech Stack
+
+## Backend
 
 - Python
 - FastAPI
+- PostgreSQL
 - SQLAlchemy
 - Alembic
-- PostgreSQL
-- Pydantic Settings
+- Pydantic
+- pwdlib (Argon2)
 
-### Development
+## Development
 
 - Git
 - GitHub
@@ -39,55 +49,90 @@ Instead of rebuilding the same backend for every AI application, Nexus AI aims t
 
 ---
 
-## Project Structure
+# Project Structure
 
 ```text
 backend/
 ├── alembic/
+│
 ├── app/
+│   ├── api/
 │   ├── core/
+│   ├── crud/
 │   ├── db/
 │   ├── models/
+│   ├── schemas/
+│   ├── services/
 │   └── main.py
+│
 ├── alembic.ini
 └── requirements.txt
 ```
 
 ---
 
-## Roadmap
+# Features Completed
 
-## Roadmap
-
-## Roadmap
-
-- [x] Backend setup
-- [x] Configuration management
-- [x] Database connection
+- [x] FastAPI project setup
+- [x] Environment configuration
+- [x] PostgreSQL connection
+- [x] SQLAlchemy integration
+- [x] Alembic migrations
 - [x] User model
-- [x] Database migrations
-- [ ] Authentication
-- [ ] Project Management
-- [ ] API Key Management
-- [ ] AI Gateway
-- [ ] Multi-Provider Support
-- [ ] Intelligent Model Router
-- [ ] Evaluation Engine
-- [ ] Observability Dashboard
+- [x] User registration
+- [x] Password hashing
+- [x] Duplicate email validation
 
 ---
 
-## Vision
+# Roadmap
 
-The long-term goal of Nexus AI is to become a unified AI infrastructure platform that abstracts multiple AI providers behind a single interface while providing authentication, project management, intelligent routing, evaluation, observability, and reliable execution for AI-powered applications.
+## Authentication
 
-As the project evolves, Nexus AI will expand into a runtime for AI applications and agents, enabling developers to deploy, monitor, evaluate, and scale AI systems without rebuilding the underlying infrastructure
+- [x] User registration
+- [ ] User login
+- [ ] JWT authentication
+- [ ] Refresh tokens
+- [ ] Role-based access control
+
+## Core Platform
+
+- [ ] Project management
+- [ ] API key management
+- [ ] Team workspaces
+
+## AI Infrastructure
+
+- [ ] Multi-provider model gateway
+- [ ] Intelligent model router
+- [ ] Prompt management
+- [ ] Model evaluation engine
+- [ ] Cost tracking
+- [ ] Usage analytics
+- [ ] Observability dashboard
+
+## Long-term Vision
+
+- [ ] AI Agent Runtime
+- [ ] Agent Orchestration
+- [ ] Workflow Engine
+- [ ] Distributed Execution
+- [ ] Plugin System
 
 ---
 
-## Status
+# Vision
 
-🚧 Currently under active development.
+Nexus AI aims to become the operating system for AI applications.
 
-Contributions, feedback, and suggestions are always welcome.
+Rather than building authentication, model routing, evaluation pipelines, observability, API management, and deployment infrastructure for every project, developers should be able to build on a single platform that provides these capabilities out of the box.
 
+The long-term goal is to provide a production-ready runtime for AI applications and autonomous agents that abstracts multiple model providers behind a unified interface while offering reliable execution, monitoring, evaluation, and scaling.
+
+---
+
+# Status
+
+🚧 Active Development
+
+This project is being built in public, one milestone at a time.
