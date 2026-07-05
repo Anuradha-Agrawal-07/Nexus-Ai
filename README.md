@@ -90,8 +90,8 @@ backend/
 ## Authentication
 
 - [x] User registration
-- [ ] User login
-- [ ] JWT authentication
+- [x] User login
+- [x] JWT authentication
 - [ ] Refresh tokens
 - [ ] Role-based access control
 
