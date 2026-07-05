@@ -9,6 +9,10 @@ app = FastAPI(
     version=settings.APP_VERSION
 )
 
+from app.api.auth import router as auth_router
+
+app.include_router(auth_router)
+
 @app.get("/")
 async def root():
     return {
