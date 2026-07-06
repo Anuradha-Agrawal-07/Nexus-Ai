@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-
+from fastapi.security import OAuth2PasswordRequestForm
 from app.db.database import get_db
 
 from app.schemas.user import UserCreate, UserResponse
@@ -49,17 +49,17 @@ def register(
 
     return new_user
 
-
+    
 @router.post(
     "/login",
     response_model=Token,
-    status_code=201  #client's request was successfully fulfilled
+    status_code=201
 )
 def login(
-    login: LoginRequest,
+    form_data: OAuth2PasswordRequestForm = Depends(),
     db: Session = Depends(get_db)
 ):
-    existing_user = get_user_by_email(db, login.email)
+    existing_user = get_user_by_email(db, form_data.username)
 
     if not existing_user:
         raise HTTPException(
@@ -67,22 +67,23 @@ def login(
             detail="Invalid email or password"
         )
 
-    
-
-    if(verify_password(login.password,existing_user.hashed_password)):
-        data = {
-            "sub": str(existing_user.id),
-            "role": existing_user.role
-    }
-        token=create_access_token(data)
-        return {
-            "access_token": token,
-            "token_type": "bearer"
-    }
-
-    if not verify_password(login.password,existing_user.hashed_password):
+    if not verify_password(
+        form_data.password,
+        existing_user.hashed_password
+    ):
         raise HTTPException(
             status_code=401,
             detail="Invalid email or password"
-    )
-    
+        )
+
+    data = {
+        "sub": str(existing_user.id),
+        "role": existing_user.role
+    }
+
+    token = create_access_token(data)
+
+    return {
+        "access_token": token,
+        "token_type": "bearer"
+    }
