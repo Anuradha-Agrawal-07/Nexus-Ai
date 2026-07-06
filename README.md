@@ -18,14 +18,18 @@ Instead of wiring together authentication, API keys, model routing, evaluation, 
 - SQLAlchemy ORM
 - Alembic database migrations
 
-## ✅ Authentication Foundation
+## ✅ Authentication
 
 - User model
-- User registration endpoint
+- User registration
+- User login
 - Password hashing (Argon2)
-- Duplicate email protection
+- JWT authentication
+- Protected routes
+- OAuth2 authentication flow
 - Request & response validation with Pydantic
 - Database session management
+- Dependency Injection with FastAPI
 
 ---
 
@@ -40,6 +44,7 @@ Instead of wiring together authentication, API keys, model routing, evaluation, 
 - Alembic
 - Pydantic
 - pwdlib (Argon2)
+- python-jose (JWT)
 
 ## Development
 
@@ -80,7 +85,12 @@ backend/
 - [x] Alembic migrations
 - [x] User model
 - [x] User registration
+- [x] User login
 - [x] Password hashing
+- [x] JWT authentication
+- [x] Protected routes
+- [x] OAuth2 integration
+- [x] Dependency Injection
 - [x] Duplicate email validation
 
 ---
@@ -92,6 +102,7 @@ backend/
 - [x] User registration
 - [x] User login
 - [x] JWT authentication
+- [x] Protected routes
 - [ ] Refresh tokens
 - [ ] Role-based access control
 
@@ -125,7 +136,7 @@ backend/
 
 Nexus AI aims to become the operating system for AI applications.
 
-Rather than building authentication, model routing, evaluation pipelines, observability, API management, and deployment infrastructure for every project, developers should be able to build on a single platform that provides these capabilities out of the box.
+Rather than rebuilding authentication, model routing, evaluation pipelines, observability, API management, and deployment infrastructure for every AI project, developers should be able to build on a single platform that provides these capabilities out of the box.
 
 The long-term goal is to provide a production-ready runtime for AI applications and autonomous agents that abstracts multiple model providers behind a unified interface while offering reliable execution, monitoring, evaluation, and scaling.
 
@@ -134,5 +145,3 @@ The long-term goal is to provide a production-ready runtime for AI applications 
 # Status
 
 🚧 Active Development
-
-This project is being built in public, one milestone at a time.
