@@ -1,10 +1,9 @@
 import uuid
 from sqlalchemy import Column, String, Boolean, DateTime
 from sqlalchemy.dialects.postgresql import UUID
-
+from sqlalchemy.orm import relationship, validates
 from app.db.database import Base
-
-
+from datetime import datetime, timezone
 class User(Base):
     __tablename__ = "users"
 
@@ -33,7 +32,7 @@ class User(Base):
 
     role = Column(
         String(20),
-        default="developer"
+        default="user"
     )
 
     is_active = Column(
@@ -46,6 +45,21 @@ class User(Base):
         default=False
     )
 
-    created_at = Column(DateTime)
+    created_at = Column(
+    DateTime(timezone=True),
+    default=lambda: datetime.now(timezone.utc),
+    nullable=False
+    )
 
-    updated_at = Column(DateTime)
+    updated_at = Column(
+    DateTime(timezone=True),
+    default=lambda: datetime.now(timezone.utc),
+    onupdate=lambda: datetime.now(timezone.utc),
+    nullable=False
+    )
+
+    projects = relationship(
+        "Project",
+        back_populates="owner",
+        cascade="all, delete-orphan"
+    )
