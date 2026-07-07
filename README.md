@@ -28,8 +28,19 @@ Instead of wiring together authentication, API keys, model routing, evaluation, 
 - Protected routes
 - OAuth2 authentication flow
 - Request & response validation with Pydantic
+- Dependency Injection
 - Database session management
-- Dependency Injection with FastAPI
+
+## ✅ Project Management
+
+- Project model
+- User → Project relationship
+- Create Project
+- Get My Projects
+- Get Project by ID
+- Update Project
+- Delete Project
+- Owner-based authorization
 
 ---
 
@@ -91,7 +102,10 @@ backend/
 - [x] Protected routes
 - [x] OAuth2 integration
 - [x] Dependency Injection
-- [x] Duplicate email validation
+- [x] Project model
+- [x] User–Project relationship
+- [x] Project CRUD
+- [x] Owner-based authorization
 
 ---
 
@@ -108,7 +122,7 @@ backend/
 
 ## Core Platform
 
-- [ ] Project management
+- [x] Project management
 - [ ] API key management
 - [ ] Team workspaces
 
@@ -145,3 +159,10 @@ The long-term goal is to provide a production-ready runtime for AI applications 
 # Status
 
 🚧 Active Development
+
+### Current Milestone
+
+✅ Authentication & Authorization completed  
+✅ Project Management (Full CRUD) completed  
+
+**Next:** API Key Management
