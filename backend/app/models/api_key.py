@@ -15,8 +15,8 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.db.database import Base
 
 
-class Project(Base):
-    __tablename__ = "projects"
+class APIKey(Base):
+    __tablename__ = "api_keys"
 
     id = Column(
         UUID(as_uuid=True),
@@ -24,18 +24,19 @@ class Project(Base):
         default=uuid.uuid4
     )
 
-    name = Column(
+    provider = Column(
         String(70),
         nullable=False
     )
 
-    description = Column(
-        Text
+    encrypted_key = Column(
+        Text,
+        nullable=False
     )
 
-    owner_id = Column(
+    project_id = Column(
         UUID(as_uuid=True),
-        ForeignKey("users.id"),
+        ForeignKey("projects.id"),
         nullable=False
         
     )
@@ -53,9 +54,4 @@ class Project(Base):
     nullable=False
     )
 
-    owner = relationship("User", back_populates="projects")  #we don't need to import User directly s
-    api_keys = relationship(
-        "APIKey",
-        back_populates="project",
-        cascade="all, delete-orphan"
-    )
+    project = relationship("Project", back_populates="api_keys")  #we don't need to import User directly s
