@@ -123,7 +123,7 @@ backend/
 ## Core Platform
 
 - [x] Project management
-- [ ] API key management
+- [x] API key management
 - [ ] Team workspaces
 
 ## AI Infrastructure
